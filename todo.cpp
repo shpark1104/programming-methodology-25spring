@@ -46,7 +46,7 @@ void TodoList::remove_task(int index) {
     if(index >= size) throw std::out_of_range("index out of size");
     delete tasks[index];
     for(; index < size - 1; index++) tasks[index] = tasks[index+1];
-    size--;
+    tasks[--size] = nullptr;
 }
 
 const char** TodoList::get_pending_tasks(int& count) const {
